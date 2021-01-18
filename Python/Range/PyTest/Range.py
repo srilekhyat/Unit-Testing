@@ -50,8 +50,11 @@ class Range:
     def combine(self, range_obj) -> bool:
         """
         Returns a new Range object which is a combination of 
-        the two ranges
+        the two ranges if they are not disjoint
         """
+        if self.is_disjoint(range_obj):
+            return Range(0)
+
         new_start = min(self.start, range_obj.start)
         new_end = max(self.end, range_obj.end)
         return Range(new_start, new_end)
@@ -84,32 +87,52 @@ class Range:
         """
         return self.end - self.start
     
-    def shift(self, n: int) -> int:
+    def shift(self, n: int) -> None:
         """
         Shifts Range by n by adding n to the limits
         """
         self.start += n
         self.end += n
+
+        if self.start > self.end:
+            self.reset()
     
-    def rshift(self, n: int) -> int:
+    def rshift(self, n: int) -> None:
         """
         Shifts ending point of Range by n
         """
         self.end += n
+        if self.start > self.end:
+            self.reset()
     
-    def lshift(self, n: int) -> int:
+    def lshift(self, n: int) -> None:
         """
         Shifts starting point of Range by n
         """
         self.start += n
+        if self.start > self.end:
+            self.reset()
     
-    def squeeze(self, n: int) -> int:
+    def squeeze(self, n: int) -> None:
         """
         Changes Range by increasing lower limit by n 
         and decreasing upper limit by n
         """
         self.start += n
         self.end -= n
+
+        if self.start > self.end:
+            self.reset()
+    
+    def stretch(self, *args) -> None:
+        """
+        Changes Range by stretching the limits
+        """
+        left = args[0]
+        right = args[0] if len(args) == 1 else args[1]
+
+        self.start -= left
+        self.right += right
 
         if self.start > self.end:
             self.reset()
