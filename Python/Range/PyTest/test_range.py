@@ -62,6 +62,11 @@ class TestRange:
         given_range.lshift(n)
         assert given_range.start == expected_range.start and given_range.end == expected_range.end
 
+    @pytest.mark.parametrize("given_range, n , expected_range", [(Range(2, 5), 1, Range(3, 4)), (Range(2, 6), 4, Range(0, 0)), (Range(2, 5), -3, Range(-1, 8))])
+    def test_squeeze(self, given_range, n, expected_range):
+        given_range.squeeze(n)
+        assert given_range.start == expected_range.start and given_range.end == expected_range.end
+
     def test_reset(self, range_obj):
         range_obj.reset()
         assert range_obj.start == 0 and range_obj.end == 0
