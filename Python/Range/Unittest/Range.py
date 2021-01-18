@@ -1,5 +1,8 @@
 class Range:    
     def __init__(self, *args):
+        """
+        class constructor
+        """
         self.start = 0 if len(args) == 1 else args[0]
         self.end = args[0] if len(args) == 1 else args[1]
     
