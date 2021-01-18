@@ -68,7 +68,7 @@ class Range:
         returns True if range_obj ends before the present 
         object
         """
-        return self.end < range_obj.end if self.start == range_obj.start else self.start < range_obj.start
+        return self.end < range_obj.end if self.start == range_obj.start else self.start < range_obj.start and self.end < range_obj.end
     
     def is_more_than(self, range_obj) -> bool:
         """
@@ -76,7 +76,7 @@ class Range:
         returns True if range_obj starts before the present 
         object
         """
-        return self.end > range_obj.end if self.start == range_obj.start else self.start > range_obj.start
+        return self.end > range_obj.end if self.start == range_obj.start else self.start > range_obj.start and self.end > range_obj.end
     
     def length(self) -> int:
         """
