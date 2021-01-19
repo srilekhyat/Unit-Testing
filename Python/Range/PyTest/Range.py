@@ -1,4 +1,7 @@
 class Range:    
+    """
+    This Range class embodies the Semi-Open Interval [a, b)
+    """
     def __init__(self, *args):
         self.start = 0 if len(args) == 1 else args[0]
         self.end = args[0] if len(args) == 1 else args[1]
