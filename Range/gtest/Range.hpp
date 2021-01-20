@@ -3,6 +3,9 @@
 using namespace std;
 
 class Range {
+    /*
+    This Range class embodies the Semi-Open Interval [a, b)
+    */
     private:
         int start;
         int stop;
@@ -35,7 +38,7 @@ class Range {
         bool contains(int item) {
             return (start <= item) && (item < stop);
         }
-
+        
         bool overlaps(Range rObj) {
             if (start < rObj.start)
                 return rObj.start < stop;
