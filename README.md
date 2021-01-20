@@ -1,5 +1,5 @@
 # Unit-Testing
-Unit Testing in Python using pytest and unittest for user-defined Range class
+Unit Testing in Python using pytest and unittest and in C++ using Google Test (GTest) for user-defined Range class
 
 
 ## Unit Testing
@@ -26,3 +26,13 @@ unittest is built into Python's standard library
 `import unittest `
 
 `python -m unittest <Filename>.py`
+
+
+## Google Test
+It is Unit Testing Framework by Google based on the xUnit Architecture and it used in C++
+
+### Installation
+We can download GTest from the [GitHub repository of the same name](https://github.com/google/googletest).
+
+#### Steps:
+- 1. `git clone https://github.com/google/googletest`
