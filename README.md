@@ -33,6 +33,3 @@ It is Unit Testing Framework by Google based on the xUnit Architecture and it us
 
 ### Installation
 We can download GTest from the [GitHub repository of the same name](https://github.com/google/googletest).
-
-#### Steps:
-- 1. `git clone https://github.com/google/googletest`
